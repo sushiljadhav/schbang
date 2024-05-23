@@ -24,9 +24,32 @@ function Services() {
 						spaceBetween={21}
 						autoplay={true}
 						loop={true}
-						modules={[Autoplay]}
+						modules={[]}
 						className={styles.services_slider}
 						centeredSlides={true}
+						breakpoints={{
+							640: {
+								slidesPerView: 1,
+								spaceBetween: 20,
+							},
+							768: {
+								slidesPerView: 1,
+								spaceBetween: 20,
+							},
+							545: {
+								slidesPerView: 1,
+								spaceBetween: 20,
+							},
+							1024: {
+								slidesPerView: 2,
+								spaceBetween: 20,
+							},
+
+							1920: {
+								slidesPerView: 2,
+								spaceBetween: 50,
+							},
+						}}
 					>
 						{sliderData.map((slide) => {
 							return (

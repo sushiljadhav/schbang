@@ -11,6 +11,10 @@
 	top: 0;
 }
 
+.body_open {
+	overflow: hidden;
+}
+
 /* Header Style Start Here*/
 
 header .wrapper {
@@ -26,6 +30,29 @@ header .wrapper {
 	align-items: center;
 }
 
+.navOpen.nav_right {
+	display: flex;
+	position: absolute;
+	top: 107px;
+	width: 100%;
+	margin: 0;
+	left: 0;
+	flex-direction: column;
+	background-color: #fff;
+	height: 100vh;
+	justify-content: flex-start;
+	padding: 64px;
+	z-index: 999;
+	transform: all 0.5s;
+}
+
+.navOpen .menu {
+	flex-direction: column;
+	gap: 30px;
+	margin-bottom: 40px;
+	transition: all 0.5s;
+}
+
 .nav_right {
 	max-width: 806px;
 	width: 100%;
@@ -33,6 +60,14 @@ header .wrapper {
 	align-items: center;
 	justify-content: space-between;
 	margin-left: 30px;
+}
+
+.ham_lines {
+	width: 24px;
+	height: 2px;
+	display: block;
+	margin-bottom: 5px;
+	background-color: #000;
 }
 
 .hamburger_menu {
@@ -43,6 +78,25 @@ header .wrapper {
 .hamburger_menu_icon svg {
 	width: 24px;
 	height: 24px;
+}
+
+.open .ham_lines {
+	width: 24px;
+	transition: all 0.5s;
+}
+
+.open .ham_first {
+	transform: translate(-2px, 12px) rotate(45deg);
+	transition: all 0.5s;
+}
+
+.open .ham_second {
+	display: none;
+}
+
+.open .ham_third {
+	transform: translate(-1px, 5px) rotate(-41deg);
+	transition: all 0.5s;
 }
 
 .logo {
@@ -80,6 +134,10 @@ header .wrapper {
 
 .menu_link:hover {
 	color: #222831;
+}
+
+.navOpen .account_divider {
+	flex-direction: column;
 }
 
 .account_divider {
@@ -425,7 +483,7 @@ header .wrapper {
 .services_slider {
 	width: 100%;
 	height: 100%;
-	padding: 64px 30px 109px 124px !important;
+	padding: 64px 30px 109px 22% !important;
 }
 
 .services_slider.prevSlide {

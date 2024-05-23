@@ -1,7 +1,38 @@
-import React from "react";
+"use client";
+import React, { useState, useEffect, useRef } from "react";
 import styles from "../page.module.css";
 
 function Header() {
+	const [isOpen, setIsOpen] = useState(false);
+	const menuRef = useRef(null);
+
+	const navClick = (e) => {
+		e.preventDefault();
+		isOpen ? setIsOpen(false) : setIsOpen(true);
+	};
+
+	const handleClickOutside = (event) => {
+		if (menuRef.current && !menuRef.current.contains(event.target)) {
+			setIsOpen(false);
+		}
+	};
+
+	useEffect(() => {
+		if (isOpen) {
+			document.body.classList.add(styles.body_open);
+			document.addEventListener("click", handleClickOutside);
+		} else {
+			document.body.classList.remove(styles.body_open);
+			document.removeEventListener("click", handleClickOutside);
+		}
+
+		// Cleanup function to remove the class when the component unmounts
+		return () => {
+			document.body.classList.remove(styles.body_open);
+			document.removeEventListener("click", handleClickOutside);
+		};
+	}, [isOpen]);
+
 	return (
 		<header className={styles.header}>
 			<div className={styles.wrapper}>
@@ -46,7 +77,12 @@ function Header() {
 							</span>
 						</div>
 					</div>
-					<div className={styles.nav_right}>
+					<div
+						ref={menuRef}
+						className={`${styles.nav_right}  ${
+							isOpen ? styles.navOpen : ""
+						}`}
+					>
 						<ul className={styles.menu}>
 							<li className={styles.menu_list}>
 								<a
@@ -95,34 +131,22 @@ function Header() {
 							</div>
 						</div>
 					</div>
-					<div className={styles.hamburger_menu}>
+					<div
+						className={`${styles.hamburger_menu} ${
+							isOpen ? styles.open : ""
+						}`}
+						onClick={navClick}
+					>
 						<div className={styles.hamburger_menu_icon}>
-							<svg
-								xmlns="http://www.w3.org/2000/svg"
-								width="800px"
-								height="800px"
-								viewBox="0 0 24 24"
-								fill="none"
-							>
-								<path
-									d="M4 18L20 18"
-									stroke="#000000"
-									strokeWidth={2}
-									strokeLinecap="round"
-								/>
-								<path
-									d="M4 12L20 12"
-									stroke="#000000"
-									strokeWidth={2}
-									strokeLinecap="round"
-								/>
-								<path
-									d="M4 6L20 6"
-									stroke="#000000"
-									strokeWidth={2}
-									strokeLinecap="round"
-								/>
-							</svg>
+							<span
+								className={`${styles.ham_first} ${styles.ham_lines}`}
+							></span>
+							<span
+								className={`${styles.ham_second} ${styles.ham_lines}`}
+							></span>
+							<span
+								className={`${styles.ham_third} ${styles.ham_lines}`}
+							></span>
 						</div>
 					</div>
 				</div>
