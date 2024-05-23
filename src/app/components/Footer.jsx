@@ -4,6 +4,13 @@ import styles from "../page.module.css";
 function Footer() {
 	return (
 		<div className={styles.footer}>
+			<div className={styles.footer_waves}>
+				<img
+					src="/images/waves.png"
+					alt="Ticket Image"
+					className={styles.footer_waves_image}
+				/>
+			</div>
 			<div className={styles.footer_wrapper}>
 				<div className={styles.footer_top}>
 					<div className={styles.footer_top_left}>
@@ -165,7 +172,9 @@ function Footer() {
 										</li>
 										<li className={styles.meet_us_links}>
 											<span
-												className={styles.company_link}
+												className={
+													styles.company_address
+												}
 											>
 												205. R Street, New York BD23200
 											</span>

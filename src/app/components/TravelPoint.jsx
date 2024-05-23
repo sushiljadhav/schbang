@@ -27,6 +27,13 @@ function TravelPoint() {
 						literature from 45 BC.
 					</p>
 					<div className={styles.travel_point_cardsWrapper}>
+						<div className={styles.travel_ticket}>
+							<img
+								src="/images/ticket.png"
+								alt="Ticket Image"
+								className={styles.travel_ticket_image}
+							/>
+						</div>
 						<div className={styles.travel_point_card}>
 							<p className={styles.travel_point_number}>500+</p>
 							<p className={styles.travel_point_card_title}>

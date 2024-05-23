@@ -5,6 +5,13 @@ function NewsLetter() {
 	return (
 		<div className={styles.news_letter}>
 			<div className={styles.news_letter_wrapper}>
+				<div className={styles.pattern}>
+					<img
+						src="/images/pattern.png"
+						alt="Pattern Image"
+						className={styles.pattern_image}
+					/>
+				</div>
 				<div className={styles.news_letter_content}>
 					<p className={styles.news_letter_subtitle}>
 						subscribe to our newsletter

@@ -1,5 +1,12 @@
+"use client";
 import React from "react";
 import styles from "../page.module.css";
+import { Autoplay, Navigation, Pagination } from "swiper/modules";
+import { Swiper, SwiperSlide } from "swiper/react";
+import "swiper/css";
+import "swiper/css/navigation";
+import "swiper/css/pagination";
+import { sliderData } from "../utils/sliderData";
 
 function Services() {
 	return (
@@ -12,74 +19,39 @@ function Services() {
 					</h2>
 				</div>
 				<div className={styles.services_right}>
-					<div className={styles.services_slider}>
-						<div
-							className={`${styles.services_card} ${styles.services_card_active}`}
-						>
-							<div className={styles.services_icon}>
-								<img
-									src="/images/destination.png"
-									alt="Services Image"
-									className={styles.services_image}
-								/>
-							</div>
+					<Swiper
+						slidesPerView={2.5}
+						spaceBetween={21}
+						autoplay={true}
+						loop={true}
+						modules={[Autoplay]}
+						className={styles.services_slider}
+						centeredSlides={true}
+					>
+						{sliderData.map((slide) => {
+							return (
+								<SwiperSlide
+									key={slide.id}
+									className={styles.services_card}
+								>
+									<div className={styles.services_icon}>
+										<img
+											src={`/images/${slide.imageSrc}`}
+											alt={slide.title}
+											className={styles.services_image}
+										/>
+									</div>
 
-							<h3 className={styles.card_title}>
-								Best Tour Guide
-							</h3>
-							<p className={styles.card_subtitle}>
-								What looked like a small patch of purple grass,
-								above five feet.
-							</p>
-						</div>
-						<div className={styles.services_card}>
-							<div className={styles.services_icon}>
-								<img
-									src="/images/booking.png"
-									alt="Services Image"
-									className={styles.services_image}
-								/>
-							</div>
-							<h3 className={styles.card_title}>Easy Booking</h3>
-							<p className={styles.card_subtitle}>
-								Square, was moving across the sand in their
-								direction.
-							</p>
-						</div>
-						<div
-							className={`${styles.services_card} ${styles.services_card_active}`}
-						>
-							<div className={styles.services_icon}>
-								<img
-									src="/images/destination.png"
-									alt="Services Image"
-									className={styles.services_image}
-								/>
-							</div>
-
-							<h3 className={styles.card_title}>
-								Best Tour Guide
-							</h3>
-							<p className={styles.card_subtitle}>
-								What looked like a small patch of purple grass,
-								above five feet.
-							</p>
-						</div>
-						<div className={styles.services_card}>
-							<div className={styles.services_icon}>
-								<img
-									src="/images/booking.png"
-									alt="Services Image"
-									className={styles.services_image}
-								/>
-							</div>
-							<h3 className={styles.card_title}>Easy Booking</h3>
-							<p className={styles.card_subtitle}>
-								Square, was moving across the sand in their
-								direction.
-							</p>
-						</div>
-					</div>
+									<h3 className={styles.card_title}>
+										{slide.title}
+									</h3>
+									<p className={styles.card_subtitle}>
+										{slide.subTitle}
+									</p>
+								</SwiperSlide>
+							);
+						})}
+					</Swiper>
 				</div>
 			</div>
 		</div>
