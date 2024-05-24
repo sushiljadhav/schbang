@@ -28,26 +28,44 @@ function Services() {
 						className={styles.services_slider}
 						centeredSlides={true}
 						breakpoints={{
-							640: {
-								slidesPerView: 1,
-								spaceBetween: 20,
-							},
-							768: {
-								slidesPerView: 1,
-								spaceBetween: 20,
-							},
-							545: {
-								slidesPerView: 1,
-								spaceBetween: 20,
-							},
-							1024: {
+							320: {
 								slidesPerView: 2,
 								spaceBetween: 20,
 							},
 
+							480: {
+								slidesPerView: 2,
+								spaceBetween: 30,
+							},
+
+							545: {
+								slidesPerView: 2,
+								spaceBetween: 20,
+							},
+
+							640: {
+								slidesPerView: 2,
+								spaceBetween: 20,
+							},
+
+							768: {
+								slidesPerView: 2,
+								spaceBetween: 20,
+							},
+
+							1024: {
+								slidesPerView: 2,
+								spaceBetween: 30,
+							},
+
+							1280: {
+								slidesPerView: 3,
+								spaceBetween: 21,
+							},
+
 							1920: {
 								slidesPerView: 2,
-								spaceBetween: 50,
+								spaceBetween: 20,
 							},
 						}}
 					>

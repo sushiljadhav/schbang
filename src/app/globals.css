@@ -161,6 +161,10 @@ button:focus {
 	outline: none;
 }
 
+.swiper-slide {
+	height: unset !important;
+}
+
 .swiper-slide-prev {
 	box-shadow: none !important;
 }
