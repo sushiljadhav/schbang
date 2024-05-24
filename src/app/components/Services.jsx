@@ -24,7 +24,7 @@ function Services() {
 						spaceBetween={21}
 						autoplay={true}
 						loop={true}
-						modules={[]}
+						modules={[Autoplay]}
 						className={styles.services_slider}
 						centeredSlides={true}
 						breakpoints={{
